@@ -1,7 +1,7 @@
 export interface Appointment {
   id: number;
-  startDate: string | Date;
-  endDate: string | Date;
+  startDate: string;
+  endDate: string;
   title: string;
   allDay?: boolean;
   location?: string;
@@ -13,13 +13,6 @@ export interface Appointment {
 }
 
 const Appointments: Appointment[] = [
-  {
-    id: 0,
-    startDate: "2018-11-01T09:45",
-    endDate: "2018-11-01T11:00",
-    title: "Meeting",
-    allDay: false, // Przykładowa wartość
-  },
   {
     id: 1,
     startDate: "2018-11-01T12:00",
