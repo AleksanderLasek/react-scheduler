@@ -50,11 +50,12 @@ function Schedule() {
   useEffect(() => {
     // Hook useEffect do pobierania spotkań z bazy danych po załadowaniu komponentu
     const fetchAppointments = async () => {
+      
       const querySnapshot = await getDocs(collection(db, "appointments")); // Pobierz dokumenty z kolekcji "appointments"
       const fetchedAppointments = querySnapshot.docs.map((doc) => {
         const data = doc.data(); // Pobierz dane z dokumentu
 
-        // Przypisz wartości z Firestore do Appointment, konwertując daty na stringi w formacie ISO
+        // Przypisz wartości z Firestore do Appointment
         const appointment: Appointment = {
           id: data.id,
           startDate: data.startDate,
@@ -184,10 +185,10 @@ function Schedule() {
         <EditingState onCommitChanges={commitChanges} />{" "}
         {/* Stan edytowania spotkań */}
         <IntegratedEditing /> {/* Integracja edytowania z widokiem */}
-        <DayView startDayHour={8} endDayHour={16} />{" "}
-        {/* Widok dzienny kalendarza */}
         <WeekView startDayHour={8} endDayHour={16} />{" "}
         {/* Widok tygodniowy kalendarza */}
+        <DayView startDayHour={8} endDayHour={16} />{" "}
+        {/* Widok dzienny kalendarza */}
         <MonthView /> {/* Widok miesięczny kalendarza */}
         <ConfirmationDialog /> {/* Dialog potwierdzenia operacji */}
         <Toolbar /> {/* Pasek narzędzi */}
