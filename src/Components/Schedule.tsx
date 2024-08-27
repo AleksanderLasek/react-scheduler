@@ -179,7 +179,7 @@ function Schedule() {
 
   return (
     <Paper>
-      <Scheduler data={appointments} locale={"pl-PL"}>
+      <Scheduler firstDayOfWeek={1} data={appointments} locale={"en-US"}>
         <ViewState /> {/* Stan widoku kalendarza */}
         <EditingState onCommitChanges={commitChanges} />{" "}
         {/* Stan edytowania spotkań */}
